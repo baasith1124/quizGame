@@ -1,0 +1,22 @@
+{
+  "name": "quiz-game-server",
+  "version": "1.0.0",
+  "description": "Quiz Game Backend Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix frontend",
+    "build": "npm install && npm run build --prefix frontend"
+  },
+  "dependencies": {
+    "socket.io": "^4.7.5",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "uuid": "^10.0.0",
+    "nanoid": "^3.3.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
