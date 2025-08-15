@@ -278,14 +278,6 @@ function endGame(game) {
 }
 
 const PORT = process.env.PORT || 3001;
-const path = require('path');
-
-// Serve frontend
-app.use(express.static(path.join(__dirname, '../dist')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
-});
 
 
 server.listen(PORT, () => {
