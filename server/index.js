@@ -280,11 +280,12 @@ function endGame(game) {
 const path = require('path');
 
 // Serve frontend
-app.use(express.static(path.join(__dirname, '../src/dist')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../src/dist/index.html'));
-});
+app.use(express.static(path.join(__dirname, '../dist')));
 
+// Catch-all route
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+});
 
 
 
