@@ -280,15 +280,12 @@ function endGame(game) {
 const PORT = process.env.PORT || 3001;
 const path = require('path');
 
-// Serve React build in production
-if (process.env.NODE_ENV === 'production') {
-  const clientBuildPath = path.join(__dirname, 'frontend/build');
-  app.use(express.static(clientBuildPath));
+// Serve frontend
+app.use(express.static(path.join(__dirname, '../dist')));
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(clientBuildPath, 'index.html'));
-  });
-}
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+});
 
 
 server.listen(PORT, () => {
