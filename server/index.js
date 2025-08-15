@@ -277,6 +277,18 @@ function endGame(game) {
   io.to(game.gameCode).emit('game-end-player', { results: finalResults });
 }
 
+const path = require('path');
+
+// Serve frontend
+app.use(express.static(path.join(__dirname, '../dist')));
+
+// Catch-all route
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+});
+
+
+
 const PORT = process.env.PORT || 3001;
 
 
